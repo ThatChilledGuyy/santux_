@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmanuel Okafor — Community Manager Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-dark: #111d33;
+    --orange: #E87722;
+    --orange-light: #f4a04e;
+    --blue: #4A90D9;
+    --blue-light: #7ab3e8;
+    --gray: #6B7280;
+    --light: #F3F4F6;
+    --white: #ffffff;
+    --text: #1f2937;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy-dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(72,144,217,0.12) 0%, transparent 70%);
+    top: -200px; right: -200px;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,119,34,0.10) 0%, transparent 70%);
+    bottom: -150px; left: -100px;
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(232,119,34,0.15);
+    border: 1px solid rgba(232,119,34,0.4);
+    color: var(--orange);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(42px, 7vw, 86px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    color: var(--white);
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero h1 span { color: var(--orange); }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-top: 20px;
+    max-width: 560px;
+    line-height: 1.6;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 32px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 100px;
+  }
+
+  .hero-cta {
+    margin-top: 44px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: var(--orange-light); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    margin-left: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); transform: translateY(-2px); }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 80px 24px; }
+
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 48px;
+  }
+
+  /* ---- EXPERIENCE CARDS ---- */
+  .exp-grid { display: flex; flex-direction: column; gap: 24px; }
+
+  .exp-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .exp-card:hover { border-color: rgba(232,119,34,0.35); transform: translateY(-3px); }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: var(--orange);
+    border-radius: 4px 0 0 4px;
+  }
+
+  .exp-card.blue::before { background: var(--blue); }
+
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+
+  .exp-company {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .exp-role {
+    font-size: 14px;
+    color: var(--orange);
+    font-weight: 500;
+    margin-top: 3px;
+  }
+
+  .exp-card.blue .exp-role { color: var(--blue-light); }
+
+  .exp-date {
+    background: rgba(255,255,255,0.07);
+    color: rgba(255,255,255,0.5);
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .exp-bullets li {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    padding-left: 20px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--orange);
+    font-size: 12px;
+  }
+  .exp-card.blue .exp-bullets li::before { color: var(--blue-light); }
+
+  /* ---- PROOF OF WORK ---- */
+  .pow-section { background: rgba(255,255,255,0.02); }
+
+  .pow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+  .pow-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .pow-card:hover { border-color: rgba(74,144,217,0.4); transform: translateY(-3px); }
+
+  .pow-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .pow-icon.orange { background: rgba(232,119,34,0.15); }
+  .pow-icon.blue { background: rgba(74,144,217,0.15); }
+  .pow-icon.green { background: rgba(52,211,153,0.15); }
+  .pow-icon.purple { background: rgba(167,139,250,0.15); }
+
+  .pow-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .pow-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.7;
+  }
+
+  .pow-tag {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(232,119,34,0.1);
+    border: 1px solid rgba(232,119,34,0.25);
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .pow-tag.blue { color: var(--blue-light); background: rgba(74,144,217,0.1); border-color: rgba(74,144,217,0.25); }
+
+  /* ---- SKILLS ---- */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+
+  .skill-block {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 22px 24px;
+  }
+
+  .skill-block h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  .skill-block ul { list-style: none; }
+  .skill-block ul li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .skill-block ul li:last-child { border-bottom: none; }
+
+  /* ---- CONTACT ---- */
+  .contact-section {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    padding: 80px 24px;
+  }
+
+  .contact-section h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .contact-section p {
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); color: white; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">Community Manager · Moderator</div>
+  <h1>Emmanuel<br><span>Okafor</span></h1>
+  <p class="hero-sub">Building engaged, well-moderated communities at the intersection of sports betting, crypto, and creator culture.</p>
+  <div class="hero-pills">
+    <span class="pill">🏆 SportsBull</span>
+    <span class="pill">⚡ Renzo Protocol</span>
+    <span class="pill">🎯 22Bet</span>
+    <span class="pill">📣 TIMA Agency</span>
+    <span class="pill">💬 Telegram & Discord</span>
+    <span class="pill">🌍 Lagos, Nigeria</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#experience" class="btn">View My Work</a>
+    <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">Professional Experience</h2>
+    <div class="exp-grid">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">TIMA Agency</div>
+            <div class="exp-role">Influencer & Creator Marketing Specialist</div>
+          </div>
+          <span class="exp-date">2023 – Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Led influencer campaigns for SportsBull and Weltrade, managing creator briefs, performance reports, and client deliverables</li>
+          <li>Identified and vetted Nigerian content creators across all tiers (nano to mega) for multi-platform campaigns</li>
+          <li>Primary liaison between brand clients and creators, ensuring alignment on messaging and campaign execution</li>
+          <li>Developed deep familiarity with SportsBull's platform, community culture, and creator ecosystem</li>
+        </ul>
+      </div>
+
+      <div class="exp-card blue">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">Renzo Protocol</div>
+            <div class="exp-role">Telegram & Discord Community Manager</div>
+          </div>
+          <span class="exp-date">2022 – 2023</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Managed daily moderation and engagement across Telegram and Discord for a liquid restaking Web3 protocol</li>
+          <li>Onboarded new community members, answered product queries, and maintained a positive, scam-free environment</li>
+          <li>Maintained community calm during volatile market events, de-escalating FUD and negative sentiment in real time</li>
+          <li>Coordinated AMAs, community events, and major announcement rollouts with the core Renzo team</li>
+          <li>Relayed structured community feedback to the product and marketing teams on a regular cadence</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company">22Bet</div>
+            <div class="exp-role">Affiliate Marketer</div>
+          </div>
+          <span class="exp-date">2021 – 2022</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Drove affiliate traffic and user acquisition for one of Africa's leading sports betting platforms</li>
+          <li>Built content strategies targeting sports enthusiasts and converting them into active bettors</li>
+          <li>Developed thorough knowledge of sports betting mechanics, odds formats, and user retention tactics</li>
+          <li>Monitored and optimised campaigns based on conversion, retention, and performance data</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROOF OF WORK -->
+<section class="pow-section" id="proof">
+  <div class="container">
+    <div class="section-label">Proof of Work</div>
+    <h2 class="section-title">What I Have Built & Done</h2>
+    <div class="pow-grid">
+
+      <div class="pow-card">
+        <div class="pow-icon orange">🛡️</div>
+        <h3>Moderated a Live Web3 Community</h3>
+        <p>Day-to-day moderation of Renzo Protocol's Telegram and Discord, managing scam reports, FUD, and high-traffic AMA sessions without external escalation.</p>
+        <span class="pow-tag">Renzo Protocol</span>
+      </div>
+
+      <div class="pow-card">
+        <div class="pow-icon blue">📋</div>
+        <h3>Built Campaign Briefs for SportsBull</h3>
+        <p>Produced fully branded creator briefs for SportsBull campaigns at TIMA Agency, including creator-specific deliverables and insight reports across six creator voices.</p>
+        <span class="pow-tag blue">SportsBull x TIMA</span>
+      </div>
+
+      <div class="pow-card">
+        <div class="pow-icon orange">🎯</div>
+        <h3>Affiliate User Acquisition at 22Bet</h3>
+        <p>Grew affiliate traffic for 22Bet's African sports betting audience, building community-first content strategies that drove registration and deposit conversions.</p>
+        <span class="pow-tag">22Bet</span>
+      </div>
+
+      <div class="pow-card">
+        <div class="pow-icon blue">🌍</div>
+        <h3>Nigerian Influencer Talent Research</h3>
+        <p>Led a structured influencer identification effort for Weltrade targeting Nigerian creators across four tiers, complete with engagement benchmarks and niche analysis.</p>
+        <span class="pow-tag blue">Weltrade x TIMA</span>
+      </div>
+
+      <div class="pow-card">
+        <div class="pow-icon green">💬</div>
+        <h3>Telegram Moderator Playbook</h3>
+        <p>Developed a comprehensive interactive guide covering Telegram moderation tactics, community growth strategies, and anti-scam frameworks, built specifically around SportsBull's platform.</p>
+        <span class="pow-tag">SportsBull</span>
+      </div>
+
+      <div class="pow-card">
+        <div class="pow-icon purple">📊</div>
+        <h3>Creator Campaign Insight Reports</h3>
+        <p>Compiled and authored structured insight reports from raw creator feedback for client review, synthesising performance signals into actionable recommendations.</p>
+        <span class="pow-tag blue">TIMA Agency</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">Core Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h4>Community Management</h4>
+        <ul>
+          <li>Telegram & Discord moderation</li>
+          <li>Member onboarding & retention</li>
+          <li>Rules enforcement & escalation</li>
+          <li>AMA & event coordination</li>
+          <li>Anti-scam & FUD management</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h4>Sports Betting & Crypto</h4>
+        <ul>
+          <li>SportsBull platform knowledge</li>
+          <li>Sports betting mechanics & odds</li>
+          <li>Web3 / DeFi community dynamics</li>
+          <li>Affiliate marketing & acquisition</li>
+          <li>Nigerian betting market fluency</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h4>Creator & Influencer Marketing</h4>
+        <ul>
+          <li>Campaign briefs & reports</li>
+          <li>Influencer identification & vetting</li>
+          <li>Brand voice & content strategy</li>
+          <li>Creator relationship management</li>
+          <li>Campaign analytics & insights</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h4>Tools & Platforms</h4>
+        <ul>
+          <li>Telegram · Discord · Twitter/X</li>
+          <li>Notion · Google Workspace</li>
+          <li>Canva · GitHub Pages</li>
+          <li>SportsBull · 22Bet</li>
+          <li>Renzo Protocol ecosystem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <h2>Ready to Build With You</h2>
+    <p>Get in touch to discuss the SportsBull Community Manager role.</p>
+    <div class="contact-links">
+      <a href="mailto:emmanuelo@email.com" class="contact-link">📧 emmanuelo@email.com</a>
+      <a href="https://t.me/emmanuelo" class="contact-link">✈️ t.me/emmanuelo</a>
+      <a href="https://linkedin.com/in/emmanuelo" class="contact-link">💼 LinkedIn</a>
+      <a href="tel:+234XXXXXXXXXX" class="contact-link">📞 +234 XXX XXX XXXX</a>
+    </div>
+  </div>
+</section>
+
+<footer>Emmanuel Okafor · Community Manager Portfolio · 2026</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Animate cards on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = 1, e.target.style.transform = 'translateY(0)'; });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.exp-card, .pow-card, .skill-block').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
